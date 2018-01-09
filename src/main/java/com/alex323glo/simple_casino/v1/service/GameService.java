@@ -20,8 +20,9 @@ public interface GameService {
      * @param amount needed amount, which will be placed as bet (will be withdrawn
      *               from player wallet).
      * @return BalanceResponse with "OK" status and updated (not null) wallet balance value, if
-     * bet positioning was successful, or BalanceResponse with "KO" status,
-     * if it was unsuccessful (player id not found, or game id not found).
+     * bet positioning was successful, or BalanceResponse with "KO" and current wallet balance value, if
+     * amount is insufficient for current wallet balance, or BalanceResponse with "KO" status,
+     * if it was unsuccessful for another reasons (player id not found, or game id not found).
      * @throws ServiceException when passed arguments (playerId, gameId, amount) don't pass validation, or
      * service has some problems with execution of this business logic.
      *
@@ -34,9 +35,9 @@ public interface GameService {
      * Shows all bets of concrete player.
      *
      * @param playerId unique identifier of existing player wallet.
-     * @return BetResponse with "OK" status and List of placed bets, if
-     * show operation was successful, or BetResponse with "KO" status,
-     * if it was unsuccessful (player id not found).
+     * @return BetResponse with "OK" status and List of placed bets (if such doesn't have any
+     * bet at the moment, the List will be not Null and empty), if show operation was successful,
+     * or BetResponse with "KO" status, if it was unsuccessful (player id not found).
      * @throws ServiceException when passed arguments (playerId) don't pass validation, or
      * service has some problems with execution of this business logic.
      *
