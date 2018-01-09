@@ -68,4 +68,12 @@ public class BalanceResponse extends Response {
     public void setBalance(Balance balance) {
         this.balance = balance;
     }
+
+    @Override
+    public String toString() {
+        return "BalanceResponse{" +
+                "status=" + status +
+                ", balance=" + balance +
+                '}';
+    }
 }

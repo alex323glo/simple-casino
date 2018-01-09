@@ -58,4 +58,11 @@ public class Balance {
         long temp = Double.doubleToLongBits(amount);
         return (int) (temp ^ (temp >>> 32));
     }
+
+    @Override
+    public String toString() {
+        return "Balance{" +
+                "amount=" + amount +
+                '}';
+    }
 }

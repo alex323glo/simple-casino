@@ -72,4 +72,12 @@ public class BetResponse extends Response {
     public void setBets(List<Bet> bets) {
         this.bets = bets;
     }
+
+    @Override
+    public String toString() {
+        return "BetResponse{" +
+                "status=" + status +
+                ", bets=" + bets +
+                '}';
+    }
 }
